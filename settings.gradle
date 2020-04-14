@@ -1,0 +1,3 @@
+rootProject.name='a001_hello'
+include ':app'
+include ':a002_layout'
