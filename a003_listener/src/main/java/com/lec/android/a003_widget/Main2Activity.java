@@ -49,8 +49,10 @@ public class Main2Activity extends AppCompatActivity{
     Button.OnClickListener btnListener=new Button.OnClickListener(){
         @Override
         public void onClick(View v) {
-            if(resultValue.getText().length()<1){
-                Toast.makeText(Main2Activity.this,"숫자를 입력하세요",Toast.LENGTH_SHORT).show();
+            Log.d("myaa","re"+resultValue.getText().toString().length());
+            if(resultValue.getText().toString().length()==0){
+                Toast.makeText(getApplicationContext(),"숫자를 입력하세요",Toast.LENGTH_SHORT).show();
+                return;
             }
             switch (v.getId()) {
                 case R.id.btnC:
