@@ -50,7 +50,7 @@ public class Main2Activity extends AppCompatActivity{
         @Override
         public void onClick(View v) {
             Log.d("myaa","re"+resultValue.getText().toString().length());
-            if(resultValue.getText().toString().length()==0){
+            if(resultValue.getText().toString().length()==0 || hiddenNum.getText().toString().length()==0){
                 Toast.makeText(getApplicationContext(),"숫자를 입력하세요",Toast.LENGTH_SHORT).show();
                 return;
             }
