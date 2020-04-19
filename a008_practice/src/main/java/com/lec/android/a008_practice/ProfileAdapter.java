@@ -1,24 +1,25 @@
 package com.lec.android.a008_practice;
 
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder>{
-
     static ProfileAdapter adapter;
     ArrayList<Profile> items = new ArrayList<Profile>();
     // Adapter 생성자
     public ProfileAdapter(){
         this.adapter=this;
     }
-
 
     //홀더 만들기...
     @NonNull
@@ -42,12 +43,32 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         TextView tvName,tvAge,tvAdress;
-        public ViewHolder(@NonNull View itemView) {   //아이템 레이아웃의 뷰 객체 전달댐
+        ImageButton btnDelItem;
+        public ViewHolder(@NonNull final View itemView) {   //아이템 레이아웃의 뷰 객체 전달댐
             super(itemView);
 
             tvName=itemView.findViewById(R.id.tvName);
             tvAge=itemView.findViewById(R.id.tvAge);
             tvAdress=itemView.findViewById(R.id.tvAdress);
+            btnDelItem=itemView.findViewById(R.id.btnDelItem);
+            //아이템 눌렀을때
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position=getAdapterPosition();
+                    Intent intent = new Intent(v.getContext(),Popup.class);
+                    intent.putExtra("profile",adapter.getItem(position));
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            btnDelItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    adapter.removeItem(getAdapterPosition());
+                    adapter.notifyDataSetChanged();
+                }
+            });
 
 
         }
@@ -57,4 +78,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             tvAge.setText(item.getAge());
         }
     }
+    public void removeItem(int position){ items.remove(position); }
+    public Profile getItem(int position) {   return items.get(position);}
+
 }
