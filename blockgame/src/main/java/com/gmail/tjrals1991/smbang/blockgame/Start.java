@@ -35,7 +35,7 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
 
     //다이얼로그 아이디
     final int DIALOG_TIMEOVER=1;
-
+    boolean back=false;
     //시간
     Handler handler=new Handler();
 
@@ -162,13 +162,16 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
                                             point=0;
                                             tvPoint.setText("시간: "+time);
                                             tvPoint.setText("점수: "+point);
-                                            gameThread.start();
+                                            if(!back){
+                                                gameThread.start();
+                                            }else{
+                                                return;
+                                            }
                                         }
                                     });
                             builder.show();
                         }
                     }
-
                 }
             },1000);
         }
@@ -178,10 +181,10 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        //gameThread.interrupt();
-        //gameThread.setDaemon(true);
+        gameThread.interrupt();
+        gameThread.setDaemon(true);
+        back=true;
         finish();
-
     }
     @Override
     protected void onResume() {
@@ -204,5 +207,6 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
             mediaPlayer.stop();
             mediaPlayer.release();
         }
+        finish();
     }
 }
