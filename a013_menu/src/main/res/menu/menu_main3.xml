@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_refresh"
+        android:orderInCategory="100"
+        android:title="새로고침"
+        android:icon="@drawable/menu_refresh"
+        app:showAsAction="always"
+        />
+    <!--
+    <item
+        android:id="@+id/menu_search"
+        android:orderInCategory="100"
+        android:title="검색"
+        android:icon="@drawable/menu_search"
+        app:showAsAction="always"
+        />
+    -->
+    <item
+        android:id="@+id/menu_setting"
+        android:orderInCategory="100"
+        android:title="설정"
+        android:icon="@drawable/menu_settings"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/menu_alarm"
+        android:orderInCategory="100"
+        android:title="설정"
+        android:icon="@drawable/ic_alarm_24px"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/menu_search"
+        android:orderInCategory="102"
+        android:title="검색"
+        android:icon="@drawable/menu_search"
+        app:actionLayout="@layout/serach_layout"
+        app:showAsAction="always"
+        />
+    <!--app , android 네임스페이스조심  app:actionLayout -->
+</menu>

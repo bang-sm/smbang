@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/w"
+        android:title="서브메뉴1"
+        >
+        <menu>
+            <item android:title="사과"/>
+            <item android:title="바나나"/>
+            <item android:title="레몬"/>
+        </menu>
+
+    </item>
+    <item
+        android:id="@+id/d"
+        android:title="서브메뉴2"
+        >
+        <menu>
+            <item android:title="커피"/>
+            <item android:title="쥬스"/>
+            <item android:title="우유"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/c"
+        android:title="서브메뉴1"
+        />
+</menu>
