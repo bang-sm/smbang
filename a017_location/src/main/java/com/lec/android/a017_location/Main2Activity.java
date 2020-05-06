@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -62,6 +63,8 @@ public class Main2Activity extends AppCompatActivity {
 
         tvResult=findViewById(R.id.tvResult);
         btnLocate=findViewById(R.id.btnLocate);
+        
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         if(Build.VERSION.SDK_INT>=23){
             if(checkSelfPermission(String.valueOf(permissions))== PackageManager.PERMISSION_DENIED){
